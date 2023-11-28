@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-sŚrednica (cale)=1.0" />
+    <link rel="stylesheet" href="/css/style.css" />
+    <title>Browser</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+
+</head>
+
+<body>
+    <section class="main">
+
+        <div class="tires container">
+            <div class="wrap-slider position-relative">
+                <div class="slider">
+                    <img src="img/goodyear.png" alt="">
+                    <img src="img/dunlop.png" alt="">
+                    <img src="img/fulda.png" alt="">
+                    <img src="img/debica.png" alt="">
+                    <img src="img/sava.png" alt="">
+                </div>
+                <input type="image" src="img/ARROW-1.svg" class="prev-arrow arrow" alt="">
+                <input type="image" src="img/ARROW-1.svg" class="next-arrow arrow" alt="">
+            </div>
+
+            <div class=" d-flex flex-column align-items-end">
+
+                <div class="col-12 d-flex flex-column">
+
+                    <div class="original-tire">
+                        <h3 class="title">Rozmiar opony</h3>
+                        <div class="mb-3 container d-flex align-items-end justify-content-between tires-width">
+
+                            <form class="col-6 mx-3 row" id="original-tire-form">
+                                <div class="col d-flex flex-column">
+                                    <label for="inputWidth" class="form-label">Szerokość <br>(mm)</label>
+                                    <input type="text" onfocusout="ChangeTire(0)" class="form-control" id="inputWidth">
+                                </div>
+
+                                <div class="col d-flex flex-column">
+                                    <label for="inputProfile" class="form-label">Profil <br>(%)</label>
+                                    <input type="text" onfocusout="ChangeTire(0)" class="form-control"
+                                        id="inputProfile">
+                                </div>
+
+                                <div class="col d-flex flex-column">
+                                    <label for="inputDiameter" class="form-label">Średnica <br>(cale)</label>
+                                    <input type="text" onfocusout="ChangeTire(0)" class="form-control"
+                                        id="inputDiameter">
+                                </div>
+                            </form>
+
+
+
+                            <div class="col-2 row">
+                                <div class="col d-flex flex-column align-items-center ">
+                                    <label class="form-label">Średnica opony <br>(mm)</label>
+                                    <input type="text" class="form-control" id="resultDiameterOriginal"></input>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="substitute-tire">
+                        <h3 class="title">Rozmiar zamiennika</h3>
+                        <div class="mb-3 container d-flex align-items-end justify-content-between tires-width">
+
+                            <form class="col-6 mx-3 row" id="substitute-tire-form">
+                                <div class="col d-flex flex-column">
+                                    <label for="inputWidth" class="form-label">Szerokość <br>(mm)</label>
+                                    <input type="text" onfocusout="ChangeTire(1)" class="form-control" id="inputWidth">
+                                </div>
+
+                                <div class="col d-flex flex-column">
+                                    <label for="inputProfile" class="form-label">Profil <br>(%)</label>
+                                    <input type="text" onfocusout="ChangeTire(1)" class="form-control"
+                                        id="inputProfile">
+                                </div>
+
+                                <div class="col d-flex flex-column">
+                                    <label for="inputDiameter" class="form-label">Średnica <br>(cale)</label>
+                                    <input type="text" onfocusout="ChangeTire(1)" class="form-control"
+                                        id="inputDiameter">
+                                </div>
+                            </form>
+
+
+
+                            <div class="col-2 row">
+                                <div class="col d-flex flex-column align-items-center ">
+                                    <label class="form-label">Średnica opony <br>(mm)</label>
+                                    <input type="text" class="form-control" id="resultDiameterSubstitute"></input>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <button type="button" class="col-2 btn btn-dark" onclick="Calculate()">Oblicz</button>
+
+
+
+            </div>
+            <div class="result d-flex align-items-center">
+                <h4 class="text">Możliwość zastosowania zamiennika</h4>
+                <div class="result-inner" id="result-inner">
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+<!-- 
+    <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog">
+        
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h4 class="modal-title">Modal Header</h4>
+            </div>
+            <div class="modal-body">
+              <p>Some text in the modal.</p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+          
+        </div>
+      </div> -->
+
+
+
+
+
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"
+        integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="https://kit.fontawesome.com/482cf6303c.js" crossorigin="anonymous"></script>
+        <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+        <script src="js/script.js"></script>
+
+</body>
+
+</html>
